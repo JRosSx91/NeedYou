@@ -25,11 +25,8 @@ import AlertForm from "~/components/AlertForm.vue";
 import AlertMap from "~/components/AlertMap.vue";
 
 function emitirAlerta() {
-  // Aquí abrirías un modal o redirigirías a la página para emitir una nueva alerta
   console.log("Emitir alerta");
 }
 </script>
 
-<style>
-/* Aquí puedes añadir estilos específicos de esta página */
-</style>
+<style></style>

@@ -33,6 +33,5 @@ export default {
 </script>
 
 <style>
-/* Asegúrate de incluir el CSS de Leaflet aquí o en tu archivo nuxt.config para evitar problemas de estilos */
 @import "leaflet/dist/leaflet.css";
 </style>

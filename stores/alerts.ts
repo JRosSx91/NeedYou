@@ -6,7 +6,7 @@ export const useAlertasStore = defineStore("alertas", {
     alertas: [] as Alert[],
   }),
   getters: {
-    alertasActivas: (state) => state.alertas.filter((alerta) => true), // Ejemplo de lógica aquí
+    alertasActivas: (state) => state.alertas.filter((alerta) => true),
   },
   actions: {
     agregarAlerta(nuevaAlerta: Alert) {
