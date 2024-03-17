@@ -3789,6 +3789,11 @@ lazystream@^1.0.0:
   dependencies:
     readable-stream "^2.0.5"
 
+leaflet@^1.9.4:
+  version "1.9.4"
+  resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.9.4.tgz#23fae724e282fa25745aff82ca4d394748db7d8d"
+  integrity sha512-nxS1ynzJOmOlHp+iL3FyWqK89GtNL8U8rvlMOsQdTTssxZwCXh8N2NB3GDQOL+YR3XnWyZAxwQixURb+FA74PA==
+
 lilconfig@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/lilconfig/-/lilconfig-2.1.0.tgz#78e23ac89ebb7e1bfbf25b18043de756548e7f52"
@@ -6316,6 +6321,11 @@ vue-devtools-stub@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/vue-devtools-stub/-/vue-devtools-stub-0.1.0.tgz#a65b9485edecd4273cedcb8102c739b83add2c81"
   integrity sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==
+
+vue-leaflet@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/vue-leaflet/-/vue-leaflet-0.1.0.tgz#eaa23ee52468a2aee4466df422c181131ad054ac"
+  integrity sha512-J2QxmQSbmnpM/Ng+C8vxowXcWp/IEe99r87psHyWYpBz2nbxkQAeYXW7WFcgzV4O7d7Vm4a1GcqKzrU9DeDpBA==
 
 vue-router@^4.3.0:
   version "4.3.0"
