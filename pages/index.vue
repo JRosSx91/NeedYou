@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto px-4">
     <h1 class="text-2xl font-bold text-center my-8">
-      Bienvenido a la Aplicación de Alertas
+      Bienvenido a la Aplicación de Alertassssss
     </h1>
     <div class="flex justify-center">
       <button
