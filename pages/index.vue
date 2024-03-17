@@ -14,11 +14,15 @@
     <div>
       <AlertForm></AlertForm>
     </div>
+    <div>
+      <AlertMap></AlertMap>
+    </div>
   </div>
 </template>
 
 <script setup>
 import AlertForm from "~/components/AlertForm.vue";
+import AlertMap from "~/components/AlertMap.vue";
 
 function emitirAlerta() {
   // Aquí abrirías un modal o redirigirías a la página para emitir una nueva alerta
