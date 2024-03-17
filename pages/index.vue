@@ -5,27 +5,24 @@
     </h1>
     <div class="flex justify-center">
       <button
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold
+          py-2 px-4 rounded"
         @click="emitirAlerta"
       >
         Emitir Alerta
       </button>
     </div>
     <div>
-      <AlertForm></AlertForm>
-    </div>
-    <div>
-      <AlertMap></AlertMap>
+      <AlertForm />
     </div>
   </div>
 </template>
 
 <script setup>
-import AlertForm from "~/components/AlertForm.vue";
-import AlertMap from "~/components/AlertMap.vue";
+import AlertForm from '~/components/AlertForm.vue';
 
-function emitirAlerta() {
-  console.log("Emitir alerta");
+function emitirAlerta () {
+  console.log('Emitir alerta');
 }
 </script>
 

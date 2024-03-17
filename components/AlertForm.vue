@@ -1,20 +1,21 @@
 <template>
   <div class="max-w-md mx-auto my-10">
     <form
-      @submit.prevent="sendAlert"
       class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      @submit.prevent="sendAlert"
     >
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
           Nombre (opcional)
         </label>
         <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           id="name"
+          v-model="alert.name"
+          class="shadow appearance-none border rounded w-full py-2 px-3
+            text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           type="text"
           placeholder="Ejemplo: Toby"
-          v-model="alert.name"
-        />
+        >
       </div>
       <div class="mb-4">
         <label
@@ -24,13 +25,14 @@
           Descripción física
         </label>
         <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           id="description"
+          v-model="alert.description"
+          class="shadow appearance-none border rounded w-full py-2 px-3
+            text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           type="text"
           placeholder="Descripción física"
-          v-model="alert.description"
           required
-        />
+        >
       </div>
       <!-- Último Lugar -->
       <div class="mb-4">
@@ -54,12 +56,13 @@
           Última Hora Visto
         </label>
         <input
+          id="lastHour"
           v-model="alert.lastHour"
           type="time"
-          id="lastHour"
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          class="shadow appearance-none border rounded w-full py-2 px-3
+            text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           required
-        />
+        >
       </div>
 
       <!-- Foto (URL) -->
@@ -68,17 +71,18 @@
           Foto (URL)
         </label>
         <input
+          id="photo"
           v-model="alert.photo"
           type="text"
-          id="photo"
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          class="shadow appearance-none border rounded w-full py-2 px-3
+            text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           placeholder="URL de la foto"
-        />
+        >
       </div>
-      <!-- Repite la estructura anterior para los demás campos del formulario -->
       <div class="flex items-center justify-between">
         <button
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold
+            py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           type="submit"
         >
           Enviar Alerta
@@ -89,24 +93,23 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import AlertMap from "@/components/AlertMap.vue";
-import type { Alert, Coordinates } from "@/types/interfaces";
+import { ref } from 'vue';
+import AlertMap from '@/components/AlertMap.vue';
 
 const alert = ref<Alert>({
-  id: "",
-  name: "",
-  description: "",
+  id: '',
+  name: '',
+  description: '',
   lastPlace: [0, 0], // Ejemplo de coordenadas iniciales
-  lastHour: "", // Inicializa con la fecha y hora actual, ajusta según sea necesario
-  photo: "",
+  lastHour: '',
+  photo: ''
 });
 
-function sendAlert() {
+function sendAlert () {
   console.log(alert.value);
   // Aquí implementarías la lógica para enviar los datos del formulario
 }
-function updateLocation({ lat, lng }: Coordinates) {
+function updateLocation ({ lat, lng }: Coordinates) {
   alert.value.lastPlace = [lat, lng];
 }
 </script>

@@ -1,15 +1,13 @@
-import { defineStore } from "pinia/dist/pinia.js";
-
-export const useAlertasStore = defineStore("alertas", {
+export const useAlertasStore = defineStore('alertas', {
   state: () => ({
-    alertas: [] as Alert[],
+    alertas: [] as Alert[]
   }),
   getters: {
-    alertasActivas: (state) => state.alertas.filter((alerta) => true),
+    alertasActivas: state => state.alertas.filter(alerta => true)
   },
   actions: {
-    agregarAlerta(nuevaAlerta: Alert) {
+    agregarAlerta (nuevaAlerta: Alert) {
       this.alertas.push(nuevaAlerta);
-    },
-  },
+    }
+  }
 });

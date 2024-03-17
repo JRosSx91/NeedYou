@@ -18,8 +18,10 @@
   },
   "devDependencies": {
     "@nuxtjs/eslint-module": "^4.1.0",
+    "@nuxt/eslint-config": "^0.2.0",
     "@nuxtjs/i18n": "^8.2.0",
     "@pinia-plugin-persistedstate/nuxt": "^1.2.0",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "eslint": "^8.57.0",
     "nuxt3-leaflet": "^1.0.12"
   }

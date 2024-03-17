@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "Nuxtr.nuxt-vscode-extentions", 
+    "Vue.vscode-typescript-vue-plugin", 
+    "PKief.material-icon-theme", 
+    "dbaeumer.vscode-eslint"
+  ],
+}
