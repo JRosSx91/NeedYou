@@ -11,3 +11,8 @@ interface Coordinates {
   lat: number;
   lng: number;
 }
+
+interface MapState {
+  mapCenter: [number, number];
+  radius: number;
+}
