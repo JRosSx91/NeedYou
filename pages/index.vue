@@ -11,12 +11,14 @@
         Emitir Alerta
       </button>
     </div>
-    <!-- Aquí podrías añadir un componente de mapa o lista -->
+    <div>
+      <AlertForm></AlertForm>
+    </div>
   </div>
 </template>
 
 <script setup>
-// Aquí puedes importar componentes o definir lógica
+import AlertForm from "~/components/AlertForm.vue";
 
 function emitirAlerta() {
   // Aquí abrirías un modal o redirigirías a la página para emitir una nueva alerta
