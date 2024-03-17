@@ -1,24 +1,15 @@
 import { defineStore } from "pinia/dist/pinia.js";
+import type { Alert } from "@/types/interfaces";
 
-interface Alerta {
-  id: string;
-  descripcion: string;
-  ultimaUbicacion: [number, number];
-  horaDesaparicion: Date;
-}
-
-export const useAlertasStore = defineStore('alertas', {
+export const useAlertasStore = defineStore("alertas", {
   state: () => ({
-    alertas: [] as Alerta[],
+    alertas: [] as Alert[],
   }),
   getters: {
-    // Puedes definir getters para obtener partes del estado
-    // Por ejemplo, obtener todas las alertas activas
-    alertasActivas: (state) => state.alertas.filter((alerta) => /* tu lógica aquí */),
+    alertasActivas: (state) => state.alertas.filter((alerta) => true), // Ejemplo de lógica aquí
   },
   actions: {
-    // Aquí puedes definir acciones para modificar el estado
-    agregarAlerta(nuevaAlerta: Alerta) {
+    agregarAlerta(nuevaAlerta: Alert) {
       this.alertas.push(nuevaAlerta);
     },
   },
