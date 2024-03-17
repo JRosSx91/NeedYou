@@ -1,17 +1,14 @@
-// stores/mapa.js
-import { defineStore } from 'pinia';
-
 export const useMapaStore = defineStore('mapa', {
-  state: () => ({
-    centroMapa: [47.413220, -1.219482], // Valores predeterminados o vacíos
-    radio: 5000 // Ejemplo de valor predeterminado
+  state: (): MapState => ({
+    mapCenter: [47.413220, -1.219482], // Valores predeterminados
+    radius: 5000 // Ejemplo de valor predeterminado
   }),
   actions: {
-    setCentroMapa (centro) {
-      this.centroMapa = centro;
+    setCentroMapa (center: [number, number]) {
+      this.mapCenter = center;
     },
-    setRadio (radio) {
-      this.radio = radio;
+    setRadio (radius: number) {
+      this.radius = radius;
     }
   }
 });
