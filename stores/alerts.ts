@@ -1,13 +1,13 @@
-export const useAlertasStore = defineStore('alertas', {
+export const useAlertasStore = defineStore('alerts', {
   state: () => ({
-    alertas: [] as Alert[]
+    alerts: [] as Alert[]
   }),
   getters: {
-    alertasActivas: state => state.alertas.filter(alerta => true)
+    activeAlerts: state => state.alerts.filter(alerts => true)
   },
   actions: {
-    agregarAlerta (nuevaAlerta: Alert) {
-      this.alertas.push(nuevaAlerta);
+    addAlerts (newAlert: Alert) {
+      this.alerts.push(newAlert);
     }
   }
 });
