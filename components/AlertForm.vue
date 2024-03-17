@@ -6,13 +6,13 @@
     >
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
-          Descripción física
+          Nombre (opcional)
         </label>
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           id="name"
           type="text"
-          placeholder="Nombre (opcional)"
+          placeholder="Ejemplo: Toby"
           v-model="alert.name"
         />
       </div>
@@ -40,22 +40,9 @@
         >
           Última Ubicación (Latitud, Longitud)
         </label>
-        <input
-          v-model="alert.lastPlace[0]"
-          type="number"
-          step="any"
-          id="lastPlaceLat"
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          placeholder="Latitud"
-        />
-        <input
-          v-model="alert.lastPlace[1]"
-          type="number"
-          step="any"
-          id="lastPlaceLon"
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-4 leading-tight focus:outline-none focus:shadow-outline"
-          placeholder="Longitud"
-        />
+        <div>
+          <AlertMap @location-selected="updateLocation" />
+        </div>
       </div>
 
       <!-- Última Hora -->
@@ -68,9 +55,10 @@
         </label>
         <input
           v-model="alert.lastHour"
-          type="datetime-local"
+          type="time"
           id="lastHour"
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          required
         />
       </div>
 
@@ -102,19 +90,23 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import type { Alert } from "@/types/interfaces";
+import AlertMap from "@/components/AlertMap.vue";
+import type { Alert, Coordinates } from "@/types/interfaces";
 
 const alert = ref<Alert>({
   id: "",
   name: "",
   description: "",
   lastPlace: [0, 0], // Ejemplo de coordenadas iniciales
-  lastHour: new Date(), // Inicializa con la fecha y hora actual, ajusta según sea necesario
+  lastHour: "", // Inicializa con la fecha y hora actual, ajusta según sea necesario
   photo: "",
 });
 
 function sendAlert() {
   console.log(alert.value);
   // Aquí implementarías la lógica para enviar los datos del formulario
+}
+function updateLocation({ lat, lng }: Coordinates) {
+  alert.value.lastPlace = [lat, lng];
 }
 </script>
