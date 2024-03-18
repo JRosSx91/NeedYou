@@ -9,13 +9,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
 import MapEvent from '@/components/MapEvent.vue';
 
 const route = useRoute();
 const store = useMapStore();
-const mapCenter = ref([47.413220, -1.219482]);
-const calculateRadius = ref(5000);
+const mapCenter = ref(store.mapCenter);
+const calculateRadius = ref(store.radius);
 
 onMounted(() => {
   const query = route.query;

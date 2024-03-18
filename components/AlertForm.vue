@@ -12,7 +12,8 @@
           id="name"
           v-model="alert.name"
           class="shadow appearance-none border rounded w-full py-2 px-3
-            text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              text-gray-700 leading-tight focus:outline-none
+                focus:shadow-outline"
           type="text"
           placeholder="Ejemplo: Toby"
         >
@@ -28,13 +29,13 @@
           id="description"
           v-model="alert.description"
           class="shadow appearance-none border rounded w-full py-2 px-3
-            text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              text-gray-700 leading-tight focus:outline-none
+                focus:shadow-outline"
           type="text"
           placeholder="Descripción física"
           required
         >
       </div>
-      <!-- Último Lugar -->
       <div class="mb-4">
         <label
           class="block text-gray-700 text-sm font-bold mb-2"
@@ -43,9 +44,10 @@
           Última Ubicación (Latitud, Longitud)
         </label>
       </div>
-      <AlertMap @location-selected="updateLocation" />
-
-      <!-- Última Hora -->
+      <AlertMap
+        :initial-location="alert.lastPlace"
+        @update-location="updateLocation"
+      />
       <div class="mb-4 mt-3">
         <label
           class="block text-gray-700 text-sm font-bold mb-2"
@@ -58,7 +60,8 @@
           v-model="alert.lastHour"
           type="time"
           class="shadow appearance-none border rounded w-full py-2 px-3
-            text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              text-gray-700 leading-tight focus:outline-none
+                focus:shadow-outline"
           required
         >
       </div>
@@ -73,14 +76,15 @@
           v-model="alert.photo"
           type="text"
           class="shadow appearance-none border rounded w-full py-2 px-3
-            text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              text-gray-700 leading-tight focus:outline-none
+                focus:shadow-outline"
           placeholder="URL de la foto"
         >
       </div>
       <div class="flex items-center justify-between">
         <button
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold
-            py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           type="submit"
         >
           Enviar Alerta
@@ -98,16 +102,39 @@ const alert = ref<Alert>({
   id: '',
   name: '',
   description: '',
-  lastPlace: [0, 0], // Ejemplo de coordenadas iniciales
+  lastPlace: [0, 0],
   lastHour: '',
   photo: ''
 });
 
+const router = useRouter();
+
 function sendAlert () {
   console.log(alert.value);
-  // Aquí implementarías la lógica para enviar los datos del formulario
+  const store = useMapStore();
+  store.setMapCenter({
+    lat: alert.value.lastPlace[0],
+    lng: alert.value.lastPlace[1]
+  });
+
+  const lastHourParts = alert.value.lastHour.split(':');
+  const lastHourDate = new Date();
+  lastHourDate.setHours(parseInt(lastHourParts[0]),
+    parseInt(lastHourParts[1]), 0, 0);
+
+  const currentDate = new Date();
+  const diff = currentDate.getTime() - lastHourDate.getTime();
+  let passedHours = diff / (1000 * 60 * 60);
+  passedHours = Math.max(0, passedHours);
+  passedHours = Math.round(passedHours * 100) / 100;
+  console.log(passedHours);
+
+  const calculatedRadius = passedHours * 5000;
+  store.setRadius(calculatedRadius);
+
+  router.push({ name: 'event' });
 }
-function updateLocation ({ lat, lng }: Coordinates) {
-  alert.value.lastPlace = [lat, lng];
+function updateLocation (coordinates: Coordinates) {
+  alert.value.lastPlace = [coordinates.lat, coordinates.lng];
 }
 </script>

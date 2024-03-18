@@ -1,7 +1,7 @@
 export const useMapStore = defineStore('map', {
   state: (): MapState => ({
-    mapCenter: { lat: 47.413220, lng: -1.219482 },
-    radius: 5000
+    mapCenter: { lat: 0, lng: 0 },
+    radius: 0
   }),
   actions: {
     setMapCenter (center: Coordinates) {
