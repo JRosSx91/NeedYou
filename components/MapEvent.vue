@@ -1,6 +1,6 @@
 <template>
-  <div style="height: 40vh; width: 100%">
-    <LMap v-if="mostrarMapa" :zoom="zoom" :center="center">
+  <div style="height: 40vh; width: 40vw;">
+    <LMap v-if="showMap" :zoom="zoom" :center="center">
       <LTileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution="&copy; OpenStreetMap contributors"
@@ -8,7 +8,7 @@
       <LMarker :lat-lng="markerLocation" />
       <LCircle
         :lat-lng="markerLocation"
-        :radius="radio"
+        :radius="radius"
         :color="circleOptions.color"
         :fill-color="circleOptions.fillColor"
         :fill-opacity="circleOptions.fillOpacity"
@@ -19,24 +19,22 @@
 
 <script setup>
 import { ref, watchEffect } from 'vue';
-import { LMap, LTileLayer, LMarker, LCircle } from '@vue-leaflet/vue-leaflet';
-import 'leaflet/dist/leaflet.css';
 
 // Props recibidas del componente padre
 const props = defineProps({
-  centroMapa: Object,
-  radio: Number,
-  mostrarMapa: Boolean
+  mapCenter: Object,
+  radius: Number,
+  showMap: Boolean
 });
 
-const center = ref(props.centroMapa);
+const center = ref(props.mapCenter);
 const zoom = ref(10);
-const markerLocation = ref(props.centroMapa);
+const markerLocation = ref(props.mapCenter);
 const circleOptions = { color: 'red', fillColor: '#f03', fillOpacity: 0.5 };
 
 watchEffect(() => {
-  center.value = props.centroMapa;
-  markerLocation.value = props.centroMapa;
+  center.value = props.mapCenter;
+  markerLocation.value = props.mapCenter;
 });
 </script>
 

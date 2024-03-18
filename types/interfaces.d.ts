@@ -13,6 +13,6 @@ interface Coordinates {
 }
 
 interface MapState {
-  mapCenter: [number, number];
+  mapCenter: Coordinates;
   radius: number;
 }

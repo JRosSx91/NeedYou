@@ -1,22 +1,34 @@
 <template>
   <div>
     <MapEvent
-      :centro-mapa="centroMapa"
-      :radio="radioCalculado"
-      :mostrar-mapa="true"
+      :map-center="mapCenter"
+      :radius="calculateRadius"
+      :show-map="true"
     />
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import MapEvent from '@/components/MapaDeBusqueda.vue';
+import MapEvent from '@/components/MapEvent.vue';
 
-// Aquí puedes usar `useRoute` para obtener los parámetros pasados a esta página
 const route = useRoute();
+const store = useMapStore();
+const mapCenter = ref([47.413220, -1.219482]);
+const calculateRadius = ref(5000);
 
-const centroMapa = ref([47.413220, -1.219482]);
-const radioCalculado = ref(5000);
+onMounted(() => {
+  const query = route.query;
 
-onMounted(() => {});
+  if (query.mapCenter && typeof query.mapCenter === 'string') {
+    const parts = query.mapCenter.split(',').map(Number);
+    const center: Coordinates = { lat: parts[0], lng: parts[1] };
+    store.setMapCenter(center);
+  }
+
+  if (query.radius && typeof query.radius === 'string') {
+    const radius: number = Number(query.radius);
+    store.setRadius(radius);
+  }
+});
 </script>

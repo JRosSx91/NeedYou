@@ -42,13 +42,11 @@
         >
           Última Ubicación (Latitud, Longitud)
         </label>
-        <div>
-          <AlertMap @location-selected="updateLocation" />
-        </div>
       </div>
+      <AlertMap @location-selected="updateLocation" />
 
       <!-- Última Hora -->
-      <div class="mb-4">
+      <div class="mb-4 mt-3">
         <label
           class="block text-gray-700 text-sm font-bold mb-2"
           for="lastHour"

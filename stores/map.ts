@@ -1,13 +1,13 @@
-export const useMapaStore = defineStore('mapa', {
+export const useMapStore = defineStore('map', {
   state: (): MapState => ({
-    mapCenter: [47.413220, -1.219482],
+    mapCenter: { lat: 47.413220, lng: -1.219482 },
     radius: 5000
   }),
   actions: {
-    setCentroMapa (center: [number, number]) {
+    setMapCenter (center: Coordinates) {
       this.mapCenter = center;
     },
-    setRadio (radius: number) {
+    setRadius (radius: number) {
       this.radius = radius;
     }
   }
