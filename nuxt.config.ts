@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     '@nuxtjs/eslint-module',
     '@nuxtjs/i18n',
     '@pinia-plugin-persistedstate/nuxt',
-    'nuxt3-leaflet'
+    'nuxt3-leaflet',
+    "@nuxt/content"
   ]
 });
