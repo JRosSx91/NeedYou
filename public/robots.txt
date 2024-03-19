@@ -1,1 +1,18 @@
-Hello World
+# Permite a todos los robots acceder a todo el sitio
+User-agent: *
+Allow: /
+
+# Bloquea el acceso a directorios y páginas sensibles
+Disallow: /admin/
+Disallow: /login/
+Disallow: /temp/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /config/
+
+# Bloquea el acceso a archivos específicos que no deben ser indexados
+Disallow: /important-data.pdf
+Disallow: /private-info.html
+
+# Indica a los robots dónde se encuentra el Sitemap para mejorar la indexación
+Sitemap: http://www.tusitio.com/sitemap.xml
