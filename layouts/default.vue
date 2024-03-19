@@ -2,7 +2,9 @@
   <header>
     <HeaderBar />
   </header>
-  <slot />
+  <main>
+    <slot />
+  </main>
   <footer>
     <FooterBar />
   </footer>
