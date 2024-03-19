@@ -8,8 +8,7 @@
   <main>
     <slot />
   </main>
-  <footer>
-  </footer>
+  <footer />
 </template>
 <script setup lang="ts">
 import HeaderBar from '~/components/common/HeaderBar.vue';
