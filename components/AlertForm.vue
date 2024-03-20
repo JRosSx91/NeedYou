@@ -110,7 +110,6 @@ const alert = ref<Alert>({
 const router = useRouter();
 
 function sendAlert () {
-  console.log(alert.value);
   const store = useMapStore();
   store.setMapCenter({
     lat: alert.value.lastPlace[0],
@@ -127,7 +126,6 @@ function sendAlert () {
   let passedHours = diff / (1000 * 60 * 60);
   passedHours = Math.max(0, passedHours);
   passedHours = Math.round(passedHours * 100) / 100;
-  console.log(passedHours);
 
   const calculatedRadius = passedHours * 5000;
   store.setRadius(calculatedRadius);
