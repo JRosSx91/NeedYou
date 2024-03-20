@@ -1,18 +1,19 @@
 <template>
   <div class="max-w-md mx-auto my-10">
     <form
-      class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      class="shadow-md rounded px-8 pt-6 pb-8 mb-4 font-primary2 text-gray-900
+        dark:text-white"
       @submit.prevent="sendAlert"
     >
       <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+        <label class="block text-sm font-bold mb-2" for="name">
           Nombre (opcional)
         </label>
         <input
           id="name"
           v-model="alert.name"
           class="shadow appearance-none border rounded w-full py-2 px-3
-              text-gray-700 leading-tight focus:outline-none
+               leading-tight focus:outline-none
                 focus:shadow-outline"
           type="text"
           placeholder="Ejemplo: Toby"
@@ -20,7 +21,7 @@
       </div>
       <div class="mb-4">
         <label
-          class="block text-gray-700 text-sm font-bold mb-2"
+          class="block text-sm font-bold mb-2"
           for="description"
         >
           Descripción física
@@ -29,7 +30,7 @@
           id="description"
           v-model="alert.description"
           class="shadow appearance-none border rounded w-full py-2 px-3
-              text-gray-700 leading-tight focus:outline-none
+              leading-tight focus:outline-none
                 focus:shadow-outline"
           type="text"
           placeholder="Descripción física"
@@ -38,7 +39,7 @@
       </div>
       <div class="mb-4">
         <label
-          class="block text-gray-700 text-sm font-bold mb-2"
+          class="block text-sm font-bold mb-2"
           for="lastPlace"
         >
           Última Ubicación (Latitud, Longitud)
@@ -50,7 +51,7 @@
       />
       <div class="mb-4 mt-3">
         <label
-          class="block text-gray-700 text-sm font-bold mb-2"
+          class="block text-sm font-bold mb-2"
           for="lastHour"
         >
           Última Hora Visto
@@ -60,7 +61,7 @@
           v-model="alert.lastHour"
           type="time"
           class="shadow appearance-none border rounded w-full py-2 px-3
-              text-gray-700 leading-tight focus:outline-none
+              leading-tight focus:outline-none
                 focus:shadow-outline"
           required
         >
@@ -68,7 +69,7 @@
 
       <!-- Foto (URL) -->
       <div class="mb-6">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="photo">
+        <label class="block text-sm font-bold mb-2" for="photo">
           Foto (URL)
         </label>
         <input
@@ -76,7 +77,7 @@
           v-model="alert.photo"
           type="text"
           class="shadow appearance-none border rounded w-full py-2 px-3
-              text-gray-700 leading-tight focus:outline-none
+              leading-tight focus:outline-none
                 focus:shadow-outline"
           placeholder="URL de la foto"
         >
@@ -96,7 +97,6 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import AlertMap from '@/components/AlertMap.vue';
 
 const alert = ref<Alert>({
   id: '',

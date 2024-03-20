@@ -9,8 +9,6 @@
 </template>
 
 <script setup lang="ts">
-import MapEvent from '@/components/MapEvent.vue';
-
 const route = useRoute();
 const store = useMapStore();
 const mapCenter = ref(store.mapCenter);

@@ -11,18 +11,18 @@
         aria-label="Need You"
         previewlistener="true"
       >
-        <LogoComp />
+        <CommonLogoComp />
       </NuxtLink>
     </div>
-    <ul class="items-center gap-x-8 hidden lg:flex">
+    <ul class="items-center gap-x-8 hidden lg:flex font-primary">
       <li>
-        lorem
+        Lorem
       </li>
-      <li class="text-primary">
-        ipsum
+      <li class="text-primary-500 dark:text-primary-500">
+        Ipsum
       </li>
       <li>
-        test
+        Test
       </li>
     </ul>
     <div class="flex items-center justify-end lg:flex-1 gap-1.5">
@@ -40,12 +40,8 @@
         </div>
       </div>
       <div class="relative inline-flex">
-        <DarkLight />
+        <CommonDarkLight />
       </div>
     </div>
   </div>
 </template>
-<script setup lang="ts">
-import LogoComp from './LogoComp.vue';
-import DarkLight from './DarkLight.vue';
-</script>

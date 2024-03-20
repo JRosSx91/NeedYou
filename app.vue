@@ -4,6 +4,18 @@
   </NuxtLayout>
 </template>
 <style>
+@font-face {
+  font-family: "Syncopate";
+  src: url("~/assets/fonts/Syncopate-Regular.ttf");
+}
+@font-face {
+  font-family: "Syncopate-Bold";
+  src: url("~/assets/fonts/Syncopate-Bold.ttf");
+}
+@font-face {
+  font-family: "KoHo-Regular";
+  src: url("~/assets/fonts/KoHo-Regular.ttf");
+}
 :root {
     --color-primary-50: 236 253 245;
     --color-primary-100: 209 250 229;
@@ -29,9 +41,13 @@
     --color-gray-900: 15 23 42;
     --color-gray-950: 2 6 23;
 }
-
-.text-primary {
-  --tw-text-opacity: 1;
-  color: rgb(var(--color-primary-DEFAULT)/var(--tw-text-opacity));
+.font-primary {
+  font-family: "KoHo-Regular", sans-serif;
+  font-weight: 600;
+}
+.font-primary2 {
+  font-family: "KoHo-Regular", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 </style>
