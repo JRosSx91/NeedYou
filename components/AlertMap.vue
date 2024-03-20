@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 40vh; width: 40vw">
+  <div class="mx-auto" style=" width: 24rem; height: 20rem">
     <LMap ref="map" :zoom="zoom" :center="center" @click="onMapClick">
       <LTileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

@@ -18,7 +18,7 @@
       <li>
         lorem
       </li>
-      <li>
+      <li class="text-primary">
         ipsum
       </li>
       <li>
