@@ -46,6 +46,7 @@
         </label>
       </div>
       <AlertMap
+        class="z[-9999]"
         :initial-location="alert.lastPlace"
         @update-location="updateLocation"
       />

@@ -28,7 +28,8 @@
     <div class="flex items-center justify-end lg:flex-1 gap-1.5">
       <div class="relative">
         <div class="inline-flex w-full">
-          <button
+          <UButton
+            label="open"
             class="focus:outline-none focus-visible:outline-0
                 disabled:cursor-not-allowed disabled:opacity-75 flex-shrink-0
                 font-medium rounded-md text-sm gap-x-1.5 p-1.5 text-gray-700
@@ -36,7 +37,11 @@
                 hover:bg-gray-50 dark:hover:bg-gray-800 focus-visible:ring-inset
                 focus-visible:ring-2 focus-visible:ring-primary-500
                 dark:focus-visible:ring-primary-400 inline-flex items-center"
+            @click="isOpen = true"
           />
+          <UModal v-model="isOpen" class="z-50">
+            <LoginModal />
+          </UModal>
         </div>
       </div>
       <div class="relative inline-flex">
@@ -45,3 +50,6 @@
     </div>
   </div>
 </template>
+<script setup lang="ts">
+const isOpen = ref(false);
+</script>

@@ -1,5 +1,3 @@
 <template>
-  <div>
-    <AlertForm />
-  </div>
+  <div />
 </template>
