@@ -12,14 +12,9 @@
       <UButton label="Login" color="gray" block />
 
       <UDivider label="OR" />
-
-      <UButton
-        color="black"
-        label="Login with Google"
-        icon="i-simple-icons-google"
-        block
-      />
-      <CommonGoogleBtn />
+      <div>
+        <CommonGoogleBtn />
+      </div>
     </div>
   </UCard>
 </template>

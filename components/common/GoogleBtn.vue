@@ -15,8 +15,10 @@ const handleLoginError = () => {
 </script>
 
 <template>
-  <GoogleSignInButton
-    @success="handleLoginSuccess"
-    @error="handleLoginError"
-  />
+  <div class="flex justify-center items-center">
+    <GoogleSignInButton
+      @success="handleLoginSuccess"
+      @error="handleLoginError"
+    />
+  </div>
 </template>
