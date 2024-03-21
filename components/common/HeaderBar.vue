@@ -27,31 +27,42 @@
     </ul>
     <div class="flex items-center justify-end lg:flex-1 gap-1.5">
       <CommonColorBtn />
-      <div class="mt-1">
-        <CommonDarkLight />
-      </div>
       <div class="relative">
         <div class="inline-flex w-full">
           <UButton
-            label="Connect"
+            color="white"
             variant="ghost"
-            color="primary"
-            size="2xs"
-            class="relative justify-center cursor-pointer inline-flex
-            items-center text-center ease-out
-            duration-200 rounded-md transition-all
-            outline-2 focus-visible:outline-4 focus-visible:outline-offset-1
-            border-primary-500 border-[1px] text-foreground hover:bg-primary-500
-            shadow-none
-            focus-visible:outline-border-strong data-[state=open]:bg-primary-300
-            data-[state=open]:outline-border-strong
-            text-[10px] px-2.5 h-[23px]"
+            trailing-icon="i-heroicons-user-solid"
+            class="focus:outline-none focus-visible:outline-0
+            disabled:cursor-not-allowed disabled:opacity-75
+            flex-shrink-0 font-medium rounded-md text-sm gap-x-1.5
+            p-1.5 text-gray-700 dark:text-gray-200
+            hover:text-gray-900 dark:hover:text-white
+            hover:bg-gray-50 dark:hover:bg-gray-800
+            focus-visible:ring-inset focus-visible:ring-2
+            focus-visible:ring-primary-500
+            dark:focus-visible:ring-primary-400 inline-flex items-center"
             @click="isOpen = true"
           />
           <UModal v-model="isOpen" class="z-50">
             <LoginModal />
           </UModal>
         </div>
+      </div>
+      <div
+        class="mt-1 border-l border-slate-200
+      dark:border-slate-800 ml-2 pl-3 flex items-center justify-end"
+      >
+        <CommonDarkLight />
+        <NuxtLink to="https://github.com/JRosSx91" class="ml-4 mt-1.5">
+          <UTooltip
+            text="Support me!"
+            class="border-primary-500
+          dark:border-primary-400"
+          >
+            <CommonGithubBtn />
+          </UTooltip>
+        </NuxtLink>
       </div>
     </div>
   </div>

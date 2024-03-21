@@ -1,14 +1,14 @@
 <template>
   <NuxtLayout>
-    <ul>
+    <!--<ul>
       <li v-for="country in countries" :key="country.id">
         {{ country.name }}
       </li>
-    </ul>
+    </ul>-->
     <NuxtPage />
   </NuxtLayout>
 </template>
-<script setup lang="ts">
+<!--<script setup lang="ts">
 import { createClient } from '@supabase/supabase-js';
 
 const config = useRuntimeConfig();
@@ -24,7 +24,7 @@ async function getCountries () {
 onMounted(() => {
   getCountries();
 });
-</script>
+</script>-->
 <style>
 @font-face {
   font-family: "Syncopate";
