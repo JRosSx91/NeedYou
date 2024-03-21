@@ -1,4 +1,4 @@
-interface Alert {
+export interface Alert {
   id: string;
   name: string;
   description: string;
@@ -7,12 +7,12 @@ interface Alert {
   photo: string;
 }
 
-interface Coordinates {
+export interface Coordinates {
   lat: number;
   lng: number;
 }
 
-interface MapState {
+export interface MapState {
   mapCenter: Coordinates;
   radius: number;
 }
