@@ -26,6 +26,7 @@
       </li>
     </ul>
     <div class="flex items-center justify-end lg:flex-1 gap-1.5">
+      <CommonColorBtn />
       <div class="mt-1">
         <CommonDarkLight />
       </div>
