@@ -8,12 +8,12 @@
     <NuxtPage />
   </NuxtLayout>
 </template>
-<script setup>
+<script setup lang="ts">
 import { createClient } from '@supabase/supabase-js';
 
 const config = useRuntimeConfig();
-const supabase = createClient(config.supabaseUrl,
-  config.supabaseKey);
+const supabase = createClient(config.public.supabaseUrl,
+  config.public.supabaseKey);
 const countries = ref([]);
 
 async function getCountries () {
