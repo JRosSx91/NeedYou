@@ -11,8 +11,12 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@pinia-plugin-persistedstate/nuxt',
     'nuxt3-leaflet',
-    '@nuxt/content'
+    '@nuxt/content',
+    'nuxt-vue3-google-signin'
   ],
+  googleSignIn: {
+    clientId: process.env.GOOGLE_ID
+  },
   runtimeConfig: {
     public: {
       supabaseUrl: process.env.SUPABASE_URL,

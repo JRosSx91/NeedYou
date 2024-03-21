@@ -14,6 +14,7 @@
     "@pinia/nuxt": "^0.5.1",
     "@supabase/supabase-js": "^2.39.8",
     "nuxt": "^3.10.3",
+    "nuxt-vue3-google-signin": "^0.0.11",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
