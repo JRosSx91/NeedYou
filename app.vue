@@ -1,13 +1,17 @@
 <template>
   <NuxtLayout>
+    <ul>
+      <li v-for="country in countries" :key="country.id">
+        {{ country.name }}
+      </li>
+    </ul>
     <NuxtPage />
   </NuxtLayout>
 </template>
 <script setup>
 import { createClient } from '@supabase/supabase-js';
-const supabase = createClient('https://ynveuqomvqoqzflhexqq.supabase.co',
-  // eslint-disable-next-line max-len
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InludmV1cW9tdnFvcXpmbGhleHFxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA5NjQ0OTUsImV4cCI6MjAyNjU0MDQ5NX0.Qn5MO6h3gn_ufF5O6beKE25pJcpRwgEdkmLAsCtlQ7E');
+const supabase = createClient(process.env.SUPABASE_URL,
+  process.env.SUPABASE_KEY);
 const countries = ref([]);
 
 async function getCountries () {
