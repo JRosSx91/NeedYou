@@ -2,19 +2,17 @@
   <UCard>
     <div class="space-y-4">
       <UFormGroup label="Email" name="email">
-        <UInput />
+        <UInput type="email" />
       </UFormGroup>
 
       <UFormGroup label="Password" name="password">
         <UInput type="password" />
       </UFormGroup>
 
-      <UButton label="Login" color="gray" block />
+      <UButton label="Log In" color="gray" block />
 
       <UDivider label="OR" />
-      <div>
-        <CommonGoogleBtn />
-      </div>
+      <CommonGoogleBtn />
     </div>
   </UCard>
 </template>

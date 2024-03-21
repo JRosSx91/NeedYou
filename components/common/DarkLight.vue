@@ -12,7 +12,7 @@ const isDark = computed({
 <template>
   <UToggle
     v-model="isDark"
-    color="emerald"
+    color="primary"
     on-icon="i-heroicons-moon-20-solid"
     off-icon="i-heroicons-sun-20-solid"
     @click="isDark = !isDark"
