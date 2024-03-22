@@ -19,10 +19,12 @@
               class="text-foreground text-4xl sm:text-5xl
             sm:leading-none lg:text-7xl"
             >
-              LOREM IPSUM
+              LOREM
+              <span class=" text-primary-500 dark:text-primary-400">IPSUM</span>
             </h1>
             <p
-              class="pt-2 text-foreground my-3 text-sm
+              class="pt-2
+              text-foreground my-3 text-sm
             sm:mt-5 lg:mb-0 sm:text-base lg:text-lg"
             >
               Lorem Ipsum
