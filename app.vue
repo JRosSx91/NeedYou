@@ -12,8 +12,9 @@
 import { createClient } from '@supabase/supabase-js';
 
 const config = useRuntimeConfig();
+const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = createClient(config.public.supabaseUrl,
-  config.public.supabaseKey);
+  supabaseKey);
 const countries = ref([]);
 
 async function getCountries () {
@@ -21,9 +22,7 @@ async function getCountries () {
   countries.value = data;
 }
 
-onMounted(() => {
-  getCountries();
-});
+getCountries();
 </script>-->
 <style>
 @font-face {
