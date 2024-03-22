@@ -1,5 +1,7 @@
 declare global {
     interface Window {
-        googleLoginCallback: () => void;
+      handleSignInWithGoogle: (response: any) => Promise<void>;
     }
-}
+  }
+  
+  export {};

@@ -17,7 +17,21 @@
       <UButton label="Log In" color="primary" block />
 
       <UDivider label="OR" />
-      <CommonGoogleBtn />
+      <CommonGoogleBtn
+        @login-success="handleLoginSuccess"
+        @login-error="handleLoginError"
+      />
     </div>
   </UCard>
 </template>
+<script setup lang="ts">
+const router = useRouter();
+
+const handleLoginSuccess = () => {
+  router.push('/dashboard');
+};
+
+const handleLoginError = () => {
+  router.push('/');
+};
+</script>

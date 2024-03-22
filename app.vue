@@ -8,22 +8,6 @@
     <NuxtPage />
   </NuxtLayout>
 </template>
-<!--<script setup lang="ts">
-import { createClient } from '@supabase/supabase-js';
-
-const config = useRuntimeConfig();
-const supabaseKey = process.env.SUPABASE_KEY;
-const supabase = createClient(config.public.supabaseUrl,
-  supabaseKey);
-const countries = ref([]);
-
-async function getCountries () {
-  const { data } = await supabase.from('countries').select();
-  countries.value = data;
-}
-
-getCountries();
-</script>-->
 <style>
 @font-face {
   font-family: "Syncopate";

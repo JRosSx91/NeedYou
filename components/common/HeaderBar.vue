@@ -29,7 +29,15 @@
       <CommonColorBtn />
       <div class="relative">
         <div class="inline-flex w-full">
+          <UAvatar
+            v-if="authStore.user"
+            :src="authStore.user.avatarUrl"
+            class="mt-2.5"
+            size="xs"
+            alt="Avatar del usuario"
+          />
           <UButton
+            v-else
             color="white"
             variant="ghost"
             trailing-icon="i-heroicons-user-solid"
@@ -69,4 +77,5 @@
 </template>
 <script setup lang="ts">
 const isOpen = ref(false);
+const authStore = useAuthStore();
 </script>

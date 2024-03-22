@@ -15,12 +15,15 @@ export default defineNuxtConfig({
     'nuxt-vue3-google-signin'
   ],
   googleSignIn: {
-    clientId: process.env.GOOGLE_ID
+    clientId: process.env.PUBLIC_GOOGLE_ID
   },
   runtimeConfig: {
+    supabaseSecretKey: process.env.SUPABASE_SECRET_KEY,
+    googleSecretKey: process.env.GOOGLE_SECRET_ID,
     public: {
-      supabaseUrl: process.env.SUPABASE_URL,
-      googleId: process.env.GOOGLE_ID
+      supabaseUrl: process.env.PUBLIC_SUPABASE_URL,
+      supabaseKey: process.env.PUBLIC_SUPABASE_KEY,
+      googleId: process.env.PUBLIC_GOOGLE_ID
     }
   }
 });
