@@ -1,3 +1,11 @@
+<script setup lang="ts">
+import { definePageMeta } from 'nuxt/dist/pages/runtime';
+
+definePageMeta({
+  layout: 'default',
+  middleware: 'auth'
+});
+</script>
 <template>
   <div
     class="sm:py-18 container relative mx-auto

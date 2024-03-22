@@ -14,6 +14,11 @@ const store = useMapStore();
 const mapCenter = ref(store.mapCenter);
 const calculateRadius = ref(store.radius);
 
+definePageMeta({
+  layout: 'default',
+  middleware: 'auth'
+});
+
 onMounted(() => {
   const query = route.query;
 
