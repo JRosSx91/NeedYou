@@ -15,10 +15,8 @@ async function handleSignInWithGoogle (response: any) {
   });
 
   if (error) {
-    console.error('Error durante el inicio de sesión:', error.message);
     emits('loginError', error);
   } else {
-    console.log('Inicio de sesión exitoso:', data);
     user.value = transformUserDataToUserInterface(data.user);
     const authStore = useAuthStore();
     authStore.setUser(user.value);

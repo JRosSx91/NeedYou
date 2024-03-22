@@ -78,4 +78,12 @@
 <script setup lang="ts">
 const isOpen = ref(false);
 const authStore = useAuthStore();
+watch(
+  () => authStore.user,
+  (newUser) => {
+    if (newUser) {
+      isOpen.value = false; // Cierra el modal si un usuario está presente
+    }
+  }
+);
 </script>
