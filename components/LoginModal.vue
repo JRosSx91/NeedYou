@@ -74,15 +74,15 @@ const handleLogIn = async () => {
 
 // Si necesitas una funcionalidad de registro puedes hacer algo similar
 const handleSignUp = async () => {
-  const { error } = await supabase.auth.signUp({
+  const { data, error } = await supabase.auth.signUp({
     email: email.value,
     password: password.value
   });
   if (error) {
     loginMessage.value = 'Error in user registration:' + error.message;
-  } else {
+  } else if (data.user && !data.user.email_confirmed_at) {
     loginMessage.value = 'Successful registration. Please, verify your e-mail.';
-    router.push('/dashboard');
+    router.push('/check-mail');
   }
 };
 
