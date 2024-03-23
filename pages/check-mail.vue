@@ -38,3 +38,26 @@
     </div>
   </div>
 </template>
+<script setup lang="ts">
+import { createClient } from '@supabase/supabase-js';
+const config = useRuntimeConfig();
+const supabase =
+createClient(config.public.supabaseUrl, config.public.supabaseKey);
+const router = useRouter();
+
+onMounted(() => {
+  const { data: authListener } =
+  supabase.auth.onAuthStateChange((event, session) => {
+    if (event === 'SIGNED_IN' &&
+    session?.user.email_confirmed_at) {
+      // El correo electrónico ha sido confirmado, redirige al dashboard
+      router.push('/dashboard');
+    }
+  });
+
+  // No olvides limpiar el listener cuando el componente se desmonte
+  onUnmounted(() => {
+    authListener.subscription.unsubscribe();
+  });
+});
+</script>

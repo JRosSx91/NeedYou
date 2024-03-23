@@ -72,7 +72,6 @@ const handleLogIn = async () => {
   }
 };
 
-// Si necesitas una funcionalidad de registro puedes hacer algo similar
 const handleSignUp = async () => {
   const { data, error } = await supabase.auth.signUp({
     email: email.value,
