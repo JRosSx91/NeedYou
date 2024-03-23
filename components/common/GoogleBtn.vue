@@ -44,7 +44,6 @@ const loadGoogleSDK = () => {
   document.body.appendChild(script);
 };
 
-// Asegura que la función es parte del objeto window antes de cargar el SDK
 window.handleSignInWithGoogle = handleSignInWithGoogle;
 loadGoogleSDK();
 

@@ -32,7 +32,7 @@
           <UAvatar
             v-if="authStore.user"
             :src="authStore.user.avatarUrl"
-            class="mt-2.5"
+            class="mt-2.5 border-black border-[0.5px]"
             size="xs"
             alt="Avatar del usuario"
           />
@@ -82,7 +82,7 @@ watch(
   () => authStore.user,
   (newUser) => {
     if (newUser) {
-      isOpen.value = false; // Cierra el modal si un usuario está presente
+      isOpen.value = false;
     }
   }
 );

@@ -6,15 +6,38 @@
         name="email"
       >
         <UInput
+          v-model="email"
           type="email"
         />
       </UFormGroup>
 
       <UFormGroup label="Password" name="password">
-        <UInput type="password" />
+        <UInput v-model="password" type="password" />
       </UFormGroup>
 
-      <UButton label="Log In" color="primary" block />
+      <p>
+        Do you already have an account?
+      </p>
+      <UButton color="gray" @click="signIn = true">
+        <template #trailing>
+          <UIcon name="i-heroicons-arrow-right-20-solid" />
+        </template>
+      </UButton>
+
+      <UButton
+        v-if="!signIn"
+        label="Sign up"
+        color="primary"
+        block
+        @click="handleSignUp"
+      />
+      <UButton
+        v-else
+        label="Sign in"
+        color="primary"
+        block
+        @click="handleLogIn"
+      />
 
       <UDivider label="OR" />
       <CommonGoogleBtn
@@ -25,7 +48,41 @@
   </UCard>
 </template>
 <script setup lang="ts">
+import { createClient } from '@supabase/supabase-js';
+
 const router = useRouter();
+const email = ref('');
+const password = ref('');
+const config = useRuntimeConfig();
+const supabase = createClient(config.public.supabaseUrl,
+  config.public.supabaseKey);
+const signIn = ref(false);
+
+const handleLogIn = async () => {
+  const { error } = await supabase.auth.signInWithPassword({
+    email: email.value,
+    password: password.value
+  });
+  if (error) {
+    console.error('Error de inicio de sesión:', error.message);
+    // Manejar el error, por ejemplo, mostrando un mensaje al usuario
+  } else {
+    router.push('/dashboard');
+  }
+};
+
+// Si necesitas una funcionalidad de registro puedes hacer algo similar
+const handleSignUp = async () => {
+  const { error } = await supabase.auth.signUp({
+    email: email.value,
+    password: password.value
+  });
+  if (error) {
+    console.error('Error en el registro:', error.message);
+  } else {
+    router.push('/dashboard');
+  }
+};
 
 const handleLoginSuccess = () => {
   router.push('/dashboard');
