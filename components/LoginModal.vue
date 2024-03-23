@@ -53,6 +53,7 @@ import { createClient } from '@supabase/supabase-js';
 const router = useRouter();
 const email = ref('');
 const password = ref('');
+const loginMessage = ref('');
 const config = useRuntimeConfig();
 const supabase = createClient(config.public.supabaseUrl,
   config.public.supabaseKey);
@@ -64,9 +65,9 @@ const handleLogIn = async () => {
     password: password.value
   });
   if (error) {
-    console.error('Error de inicio de sesión:', error.message);
-    // Manejar el error, por ejemplo, mostrando un mensaje al usuario
+    loginMessage.value = 'Login error: ' + error.message;
   } else {
+    loginMessage.value = 'Successful login';
     router.push('/dashboard');
   }
 };
@@ -78,8 +79,9 @@ const handleSignUp = async () => {
     password: password.value
   });
   if (error) {
-    console.error('Error en el registro:', error.message);
+    loginMessage.value = 'Error in user registration:' + error.message;
   } else {
+    loginMessage.value = 'Successful registration. Please, verify your e-mail.';
     router.push('/dashboard');
   }
 };
