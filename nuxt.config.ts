@@ -14,6 +14,15 @@ export default defineNuxtConfig({
     '@nuxt/content',
     'nuxt-vue3-google-signin'
   ],
+  i18n: {
+    langDir: 'locales/',
+    defaultLocale: 'en',
+    locales: [
+      { code: 'en', iso: 'en-US', file: 'en.ts' },
+      { code: 'es', iso: 'es-ES', file: 'es.ts' }
+    ],
+    strategy: 'prefix_except_default'
+  },
   googleSignIn: {
     clientId: process.env.PUBLIC_GOOGLE_ID
   },

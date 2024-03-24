@@ -19,15 +19,21 @@
               class="text-foreground text-4xl sm:text-5xl
             sm:leading-none lg:text-7xl"
             >
-              LOREM
-              <span class=" text-primary-500 dark:text-primary-400">IPSUM</span>
+              {{ $t('pages.index.title') }}
             </h1>
+            <h2
+              class="text-foreground text-4xl sm:text-5xl
+            sm:leading-none lg:text-7xl"
+            >
+              <span class="text-primary-500 dark:text-primary-400">
+                {{ $t('pages.index.subtitle') }}</span>
+            </h2>
             <p
               class="pt-2
               text-foreground my-3 text-sm
             sm:mt-5 lg:mb-0 sm:text-base lg:text-lg"
             >
-              Lorem Ipsum
+              {{ $t('pages.index.someText') }}
             </p>
           </div>
         </div>

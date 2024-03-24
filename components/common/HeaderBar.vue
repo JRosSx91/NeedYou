@@ -27,27 +27,38 @@
     </ul>
     <div class="flex items-center justify-end lg:flex-1 gap-1.5">
       <CommonColorBtn />
+      <UDropdown :items="languages" :popper="{ placement: 'bottom-start' }">
+        <UButton
+          color="white"
+          variant="ghost"
+          trailing-icon="i-heroicons-language-solid"
+          class="focus:outline-none focus-visible:outline-0
+            disabled:cursor-not-allowed disabled:opacity-75
+            flex-shrink-0 font-medium rounded-md text-sm gap-x-1.5
+            p-1.5 text-gray-700 dark:text-gray-200
+            hover:text-gray-900 dark:hover:text-white
+            hover:bg-gray-50 dark:hover:bg-gray-800
+            focus-visible:ring-inset focus-visible:ring-2
+            focus-visible:ring-primary-500
+            dark:focus-visible:ring-primary-400 inline-flex items-center"
+        />
+      </UDropdown>
       <div class="relative">
         <div class="inline-flex w-full">
           <div
             v-if="authStore.user"
             class="bg-transparent
-              border-none rounded-full h-auto"
+              border-none rounded-full h-auto mt-2.5"
           >
             <UDropdown :items="items" :popper="{ placement: 'bottom-start' }">
-              <UButton
-                :padded="false"
-                class="h-6 w-6 rounded-full mt-2"
-              >
-                <UChip>
-                  <UAvatar
-                    :src="authStore.user.avatarUrl"
-                    class="border-black border-[0.5px]"
-                    size="xs"
-                    alt="Avatar del usuario"
-                  />
-                </UChip>
-              </UButton>
+              <UChip inset>
+                <UAvatar
+                  :src="authStore.user.avatarUrl"
+                  class="border-black border-[0.5px]"
+                  size="xs"
+                  alt="Avatar del usuario"
+                />
+              </UChip>
             </UDropdown>
           </div>
 
@@ -91,10 +102,22 @@
   </div>
 </template>
 <script setup lang="ts">
-import defaultAvatar from '@/assets/img';
+import defaultAvatar from '@/assets/img/default-avatar2.jpg';
 const isOpen = ref(false);
 const authStore = useAuthStore();
-const defaultAvatar = '../assets/img/default-avatar.jpg';
+const switchLocalePath = useSwitchLocalePath();
+const languages = [
+  [{
+    label: 'English',
+    icon: 'i-heroicons-language-solid',
+    to: switchLocalePath('en')
+  }],
+  [{
+    label: 'Spanish',
+    icon: 'i-heroicons-language-solid',
+    to: switchLocalePath('es')
+  }]
+];
 const items = [
   [{
     label: 'Profile',
