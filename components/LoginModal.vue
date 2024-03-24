@@ -59,19 +59,15 @@ const supabase = createClient(config.public.supabaseUrl,
   config.public.supabaseKey);
 const signIn = ref(false);
 const emits = defineEmits(['loginSuccess']);
-const user = ref<User | null>(null);
 
 const handleLogIn = async () => {
-  const { data, error } = await supabase.auth.signInWithPassword({
+  const { error } = await supabase.auth.signInWithPassword({
     email: email.value,
     password: password.value
   });
   if (error) {
     loginMessage.value = 'Login error: ' + error.message;
   } else {
-    user.value = transformUserDataToUserInterface(data.user);
-    const authStore = useAuthStore();
-    authStore.setUser(user.value);
     loginMessage.value = 'Successful login';
     router.push('/dashboard');
   }

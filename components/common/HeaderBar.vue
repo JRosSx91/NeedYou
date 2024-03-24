@@ -29,13 +29,28 @@
       <CommonColorBtn />
       <div class="relative">
         <div class="inline-flex w-full">
-          <UAvatar
+          <div
             v-if="authStore.user"
-            :src="authStore.user.avatarUrl"
-            class="mt-2.5 border-black border-[0.5px]"
-            size="xs"
-            alt="Avatar del usuario"
-          />
+            class="bg-transparent
+              border-none rounded-full h-auto"
+          >
+            <UDropdown :items="items" :popper="{ placement: 'bottom-start' }">
+              <UButton
+                :padded="false"
+                class="h-6 w-6 rounded-full mt-2"
+              >
+                <UChip>
+                  <UAvatar
+                    :src="authStore.user.avatarUrl"
+                    class="border-black border-[0.5px]"
+                    size="xs"
+                    alt="Avatar del usuario"
+                  />
+                </UChip>
+              </UButton>
+            </UDropdown>
+          </div>
+
           <UButton
             v-else
             color="white"
@@ -78,6 +93,37 @@
 <script setup lang="ts">
 const isOpen = ref(false);
 const authStore = useAuthStore();
+const items = [
+  [{
+    label: 'Profile',
+    avatar: {
+      src: 'https://avatars.githubusercontent.com/u/739984?v=4'
+    }
+  }], [{
+    label: 'Edit',
+    icon: 'i-heroicons-pencil-square-20-solid',
+    shortcuts: ['E'],
+    click: () => {
+      console.log('Edit');
+    }
+  }, {
+    label: 'Duplicate',
+    icon: 'i-heroicons-document-duplicate-20-solid',
+    shortcuts: ['D'],
+    disabled: true
+  }], [{
+    label: 'Archive',
+    icon: 'i-heroicons-archive-box-20-solid'
+  }, {
+    label: 'Move',
+    icon: 'i-heroicons-arrow-right-circle-20-solid'
+  }], [{
+    label: 'Delete',
+    icon: 'i-heroicons-trash-20-solid',
+    shortcuts: ['⌘', 'D']
+  }]
+];
+
 watch(
   () => authStore.user,
   (newUser) => {
