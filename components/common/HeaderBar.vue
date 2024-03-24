@@ -91,13 +91,15 @@
   </div>
 </template>
 <script setup lang="ts">
+import defaultAvatar from '@/assets/img';
 const isOpen = ref(false);
 const authStore = useAuthStore();
+const defaultAvatar = '../assets/img/default-avatar.jpg';
 const items = [
   [{
     label: 'Profile',
     avatar: {
-      src: 'https://avatars.githubusercontent.com/u/739984?v=4'
+      src: defaultAvatar
     }
   }], [{
     label: 'Edit',
