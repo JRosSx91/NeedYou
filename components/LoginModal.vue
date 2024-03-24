@@ -58,15 +58,20 @@ const config = useRuntimeConfig();
 const supabase = createClient(config.public.supabaseUrl,
   config.public.supabaseKey);
 const signIn = ref(false);
+const emits = defineEmits(['loginSuccess']);
+const user = ref<User | null>(null);
 
 const handleLogIn = async () => {
-  const { error } = await supabase.auth.signInWithPassword({
+  const { data, error } = await supabase.auth.signInWithPassword({
     email: email.value,
     password: password.value
   });
   if (error) {
     loginMessage.value = 'Login error: ' + error.message;
   } else {
+    user.value = transformUserDataToUserInterface(data.user);
+    const authStore = useAuthStore();
+    authStore.setUser(user.value);
     loginMessage.value = 'Successful login';
     router.push('/dashboard');
   }
@@ -81,6 +86,7 @@ const handleSignUp = async () => {
     loginMessage.value = 'Error in user registration:' + error.message;
   } else if (data.user && !data.user.email_confirmed_at) {
     loginMessage.value = 'Successful registration. Please, verify your e-mail.';
+    emits('loginSuccess');
     router.push('/check-mail');
   }
 };

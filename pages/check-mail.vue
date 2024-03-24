@@ -15,15 +15,14 @@
         sm:mx-auto md:w-3/4 lg:mx-0 lg:w-full gap-4 lg:gap-8"
         >
           <div class="flex flex-col items-center">
-            <h1
+            <h6
               class="text-foreground text-4xl sm:text-5xl
               sm:leading-none lg:text-7xl"
             >
               Please check your email inbox for a link
               <span class=" text-primary-500 dark:text-primary-400">
-                to verify your account</span>
-              .
-            </h1>
+                to verify your account.</span>
+            </h6>
             <p
               class="pt-2
                 text-foreground my-3 text-sm
@@ -46,18 +45,13 @@ createClient(config.public.supabaseUrl, config.public.supabaseKey);
 const router = useRouter();
 
 onMounted(() => {
-  const { data: authListener } =
+  console.log('Componente montado, escuchando eventos de autenticación...');
   supabase.auth.onAuthStateChange((event, session) => {
-    if (event === 'SIGNED_IN' &&
-    session?.user.email_confirmed_at) {
-      // El correo electrónico ha sido confirmado, redirige al dashboard
+    console.log('Evento de autenticación:', event, session);
+    if (session?.user.email_confirmed_at != null) {
+      console.log('Correo electrónico confirmado, redirigiendo...');
       router.push('/dashboard');
     }
-  });
-
-  // No olvides limpiar el listener cuando el componente se desmonte
-  onUnmounted(() => {
-    authListener.subscription.unsubscribe();
   });
 });
 </script>
