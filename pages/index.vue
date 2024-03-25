@@ -46,3 +46,11 @@
     </div>
   </div>
 </template>
+<script setup lang="ts">
+const { t } = useI18n();
+
+useSeoMeta({
+  title: t('title'),
+  description: t('description')
+});
+</script>

@@ -43,11 +43,12 @@ const supabase =
 createClient(config.public.supabaseUrl, config.public.supabaseKey);
 const router = useRouter();
 
-onMounted(() => {
-  console.log('Componente montado, escuchando eventos de autenticación...');
+computed(() => {
   supabase.auth.onAuthStateChange((event, session) => {
-    console.log('Evento de autenticación:', event, session);
-    if (session?.user.email_confirmed_at != null) {
+    console.log(event, session);
+    // Llega hasta aquí
+    if (event === 'INITIAL_SESSION' &&
+    session?.user.email_confirmed_at != null) {
       console.log('Correo electrónico confirmado, redirigiendo...');
       router.push('/dashboard');
     }

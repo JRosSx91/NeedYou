@@ -84,7 +84,7 @@
         </div>
       </div>
       <div
-        class="mt-1 border-l border-slate-200
+        class="border-l border-slate-200
       dark:border-slate-800 ml-2 pl-3 flex items-center justify-end"
       >
         <CommonDarkLight />
@@ -102,7 +102,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useLanguages, useMenuItems } from '@/utils/constants';
 const isOpen = ref(false);
 const authStore = useAuthStore();
 const languages = useLanguages();

@@ -4,6 +4,12 @@ export default defineNuxtConfig({
   colorMode: {
     preference: 'light'
   },
+  imports: {
+    dirs: [
+      'utils',
+      'utils/constants'
+    ]
+  },
   modules: [
     '@nuxt/ui',
     '@pinia/nuxt',

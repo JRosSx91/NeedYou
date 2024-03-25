@@ -1,9 +1,10 @@
 import { defineNuxtRouteMiddleware } from '#app';
 
-export default defineNuxtRouteMiddleware((nuxtApp) => {
+export default defineNuxtRouteMiddleware(() => {
   const authStore = useAuthStore();
+  const router = useRouter();
 
   if (!authStore.user) {
-    return navigateTo('/');
+    return router.push('/');
   }
 });

@@ -1,4 +1,3 @@
-import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import defaultAvatar from '@/assets/img/default-avatar2.jpg';
 
@@ -52,12 +51,13 @@ export function useLanguages () {
 
 export function useMenuItems () {
   const { t } = useI18n();
+  const authStore = useAuthStore();
 
   return computed(() => [
     [{
       label: t('modals.avatarSettings.profileLink'),
       avatar: {
-        src: defaultAvatar
+        src: authStore.user?.avatarUrl || defaultAvatar
       }
     }], [{
       label: 'Edit',
