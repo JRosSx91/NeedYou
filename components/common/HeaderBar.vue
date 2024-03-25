@@ -16,13 +16,13 @@
     </div>
     <ul class="items-center gap-x-8 hidden lg:flex font-primary">
       <li>
-        Lorem
+        {{ $t('header.nav.navLink1') }}
       </li>
       <li class="text-primary-500 dark:text-primary-400">
-        Ipsum
+        {{ $t('header.nav.navLink2') }}
       </li>
       <li>
-        Test
+        {{ $t('header.nav.navLink3') }}
       </li>
     </ul>
     <div class="flex items-center justify-end lg:flex-1 gap-1.5">
@@ -33,14 +33,14 @@
           variant="ghost"
           trailing-icon="i-heroicons-language-solid"
           class="focus:outline-none focus-visible:outline-0
-            disabled:cursor-not-allowed disabled:opacity-75
-            flex-shrink-0 font-medium rounded-md text-sm gap-x-1.5
-            p-1.5 text-gray-700 dark:text-gray-200
+      disabled:cursor-not-allowed disabled:opacity-75
+      flex-shrink-0 font-medium rounded-md text-sm gap-x-1.5
+      p-1.5 text-gray-700 dark:text-gray-200
             hover:text-gray-900 dark:hover:text-white
-            hover:bg-gray-50 dark:hover:bg-gray-800
-            focus-visible:ring-inset focus-visible:ring-2
-            focus-visible:ring-primary-500
-            dark:focus-visible:ring-primary-400 inline-flex items-center"
+            hover:bg-gray-300 dark:hover:bg-gray-800
+      focus-visible:ring-inset focus-visible:ring-2
+      focus-visible:ring-primary-500
+      dark:focus-visible:ring-primary-400 inline-flex items-center"
         />
       </UDropdown>
       <div class="relative">
@@ -68,14 +68,14 @@
             variant="ghost"
             trailing-icon="i-heroicons-user-solid"
             class="focus:outline-none focus-visible:outline-0
-            disabled:cursor-not-allowed disabled:opacity-75
-            flex-shrink-0 font-medium rounded-md text-sm gap-x-1.5
-            p-1.5 text-gray-700 dark:text-gray-200
+      disabled:cursor-not-allowed disabled:opacity-75
+      flex-shrink-0 font-medium rounded-md text-sm gap-x-1.5
+      p-1.5 text-gray-700 dark:text-gray-200
             hover:text-gray-900 dark:hover:text-white
-            hover:bg-gray-50 dark:hover:bg-gray-800
-            focus-visible:ring-inset focus-visible:ring-2
-            focus-visible:ring-primary-500
-            dark:focus-visible:ring-primary-400 inline-flex items-center"
+            hover:bg-gray-300 dark:hover:bg-gray-800
+      focus-visible:ring-inset focus-visible:ring-2
+      focus-visible:ring-primary-500
+      dark:focus-visible:ring-primary-400 inline-flex items-center"
             @click="isOpen = true"
           />
           <UModal v-model="isOpen" class="z-50">
@@ -102,35 +102,64 @@
   </div>
 </template>
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import defaultAvatar from '@/assets/img/default-avatar2.jpg';
 const isOpen = ref(false);
 const authStore = useAuthStore();
 const switchLocalePath = useSwitchLocalePath();
-const languages = [
+const { t } = useI18n();
+const languages = computed(() => [
   [{
-    label: 'English',
-    icon: 'i-heroicons-language-solid',
+    label: t('modals.languages.english'),
+    shortcuts: ['en-US'],
     to: switchLocalePath('en')
   }],
   [{
-    label: 'Spanish',
-    icon: 'i-heroicons-language-solid',
+    label: t('modals.languages.spanish'),
+    shortcuts: ['es-ES'],
     to: switchLocalePath('es')
-  }]
-];
-const items = [
+  }],
   [{
-    label: 'Profile',
+    label: t('modals.languages.french'),
+    shortcuts: ['fr-FR'],
+    to: switchLocalePath('fr')
+  }],
+  [{
+    label: t('modals.languages.german'),
+    shortcuts: ['de-DE'],
+    to: switchLocalePath('de')
+  }],
+  [{
+    label: t('modals.languages.italian'),
+    shortcuts: ['it-IT'],
+    to: switchLocalePath('it')
+  }],
+  [{
+    label: t('modals.languages.chinese'),
+    shortcuts: ['zh-CN'],
+    to: switchLocalePath('zh')
+  }],
+  [{
+    label: t('modals.languages.japanese'),
+    shortcuts: ['ja-JP'],
+    to: switchLocalePath('ja')
+  }],
+  [{
+    label: t('modals.languages.arabic'),
+    shortcuts: ['ar-SA'],
+    to: switchLocalePath('ar')
+  }]
+]);
+const items = computed(() => [
+  [{
+    label: t('modals.avatarSettings.profileLink'),
     avatar: {
       src: defaultAvatar
     }
   }], [{
     label: 'Edit',
     icon: 'i-heroicons-pencil-square-20-solid',
-    shortcuts: ['E'],
-    click: () => {
-      console.log('Edit');
-    }
+    shortcuts: ['E']
   }, {
     label: 'Duplicate',
     icon: 'i-heroicons-document-duplicate-20-solid',
@@ -147,7 +176,7 @@ const items = [
     icon: 'i-heroicons-trash-20-solid',
     shortcuts: ['⌘', 'D']
   }]
-];
+]);
 
 watch(
   () => authStore.user,

@@ -19,7 +19,13 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
     locales: [
       { code: 'en', iso: 'en-US', file: 'en.ts' },
-      { code: 'es', iso: 'es-ES', file: 'es.ts' }
+      { code: 'es', iso: 'es-ES', file: 'es.ts' },
+      { code: 'fr', iso: 'fr-FR', file: 'fr.ts' },
+      { code: 'de', iso: 'de-DE', file: 'de.ts' },
+      { code: 'it', iso: 'it-IT', file: 'it.ts' },
+      { code: 'zh', iso: 'zh-CN', file: 'zh.ts' },
+      { code: 'ja', iso: 'ja-JP', file: 'ja.ts' },
+      { code: 'ar', iso: 'ar-SA', file: 'ar.ts' }
     ],
     strategy: 'prefix_except_default'
   },
