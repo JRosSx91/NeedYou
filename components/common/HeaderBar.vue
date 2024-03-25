@@ -14,34 +14,11 @@
         <CommonLogoComp />
       </NuxtLink>
     </div>
-    <ul class="items-center gap-x-8 hidden lg:flex font-primary">
-      <li>
-        {{ $t('header.nav.navLink1') }}
-      </li>
-      <li class="text-primary-500 dark:text-primary-400">
-        {{ $t('header.nav.navLink2') }}
-      </li>
-      <li>
-        {{ $t('header.nav.navLink3') }}
-      </li>
-    </ul>
+    <CommonNavBar />
     <div class="flex items-center justify-end lg:flex-1 gap-1.5">
       <CommonColorBtn />
       <UDropdown :items="languages" :popper="{ placement: 'bottom-start' }">
-        <UButton
-          color="white"
-          variant="ghost"
-          trailing-icon="i-heroicons-language-solid"
-          class="focus:outline-none focus-visible:outline-0
-      disabled:cursor-not-allowed disabled:opacity-75
-      flex-shrink-0 font-medium rounded-md text-sm gap-x-1.5
-      p-1.5 text-gray-700 dark:text-gray-200
-            hover:text-gray-900 dark:hover:text-white
-            hover:bg-gray-300 dark:hover:bg-gray-800
-      focus-visible:ring-inset focus-visible:ring-2
-      focus-visible:ring-primary-500
-      dark:focus-visible:ring-primary-400 inline-flex items-center"
-        />
+        <CommonLanguageBtn />
       </UDropdown>
       <div class="relative">
         <div class="inline-flex w-full">
@@ -62,22 +39,7 @@
             </UDropdown>
           </div>
 
-          <UButton
-            v-else
-            color="white"
-            variant="ghost"
-            trailing-icon="i-heroicons-user-solid"
-            class="focus:outline-none focus-visible:outline-0
-      disabled:cursor-not-allowed disabled:opacity-75
-      flex-shrink-0 font-medium rounded-md text-sm gap-x-1.5
-      p-1.5 text-gray-700 dark:text-gray-200
-            hover:text-gray-900 dark:hover:text-white
-            hover:bg-gray-300 dark:hover:bg-gray-800
-      focus-visible:ring-inset focus-visible:ring-2
-      focus-visible:ring-primary-500
-      dark:focus-visible:ring-primary-400 inline-flex items-center"
-            @click="isOpen = true"
-          />
+          <CommonUserBtn v-else @click="isOpen = true" />
           <UModal v-model="isOpen" class="z-50">
             <LoginModal />
           </UModal>
