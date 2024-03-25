@@ -53,6 +53,7 @@
         <NuxtLink to="https://github.com/JRosSx91" class="ml-4 mt-1.5">
           <UTooltip
             text="Support me!"
+            :popper="{ arrow: true }"
             class="border-primary-500
           dark:border-primary-400"
           >
