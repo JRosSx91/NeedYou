@@ -19,17 +19,16 @@
               class="text-foreground text-4xl sm:text-5xl
               sm:leading-none lg:text-7xl"
             >
-              Please check your email inbox for a link
+              {{ $t('pages.checkMail.confirmation1') }}
               <span class=" text-primary-500 dark:text-primary-400">
-                to verify your account.</span>
+                {{ $t('pages.checkMail.confirmation2') }}</span>
             </h6>
             <p
               class="pt-2
                 text-foreground my-3 text-sm
               sm:mt-5 lg:mb-0 sm:text-base lg:text-lg"
             >
-              If you have not yet received the verification
-              email you can resend it from this link.
+              {{ $t('pages.checkMail.resend') }}
             </p>
           </div>
         </div>

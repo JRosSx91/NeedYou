@@ -19,14 +19,19 @@
               class="text-foreground text-4xl sm:text-5xl
             sm:leading-none lg:text-7xl"
             >
-              {{ $t('pages.index.title') }}
+              <span class="text-primary-500 dark:text-primary-400">
+                {{ $t('pages.index.title') }}
+              </span>
+              {{ $t('pages.index.appName1') }}
+              <span class="text-primary-500 dark:text-primary-400">
+                {{ $t('pages.index.appName2') }}
+              </span>
             </h1>
             <h2
               class="text-foreground text-4xl sm:text-5xl
             sm:leading-none lg:text-7xl"
             >
-              <span class="text-primary-500 dark:text-primary-400">
-                {{ $t('pages.index.subtitle') }}</span>
+              {{ $t('pages.index.subtitle') }}
             </h2>
             <p
               class="pt-2
