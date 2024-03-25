@@ -1,8 +1,9 @@
 <template>
   <div>
     <h1>
-      Need
-      <span class="-ml-[5px] text-primary-500 dark:text-primary-400">you</span>
+      {{ $t('pages.index.appName1') }}
+      <span class="-ml-[5px] text-primary-500 dark:text-primary-400">
+        {{ $t('pages.index.appName2') }}</span>
     </h1>
     <h2 />
   </div>
