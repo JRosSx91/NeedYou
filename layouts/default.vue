@@ -8,6 +8,7 @@
     </header>
     <main class="min-h-[calc(100vh-4rem)]">
       <slot />
+      <BackgroundComp />
     </main>
     <footer />
   </div>

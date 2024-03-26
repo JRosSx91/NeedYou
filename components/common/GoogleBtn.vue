@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { createClient } from '@supabase/supabase-js';
 
-const user = ref<User | null>(null);
+const user = ref<User>();
 const config = useRuntimeConfig();
 const supabase = createClient(config.public.supabaseUrl,
   config.public.supabaseKey);

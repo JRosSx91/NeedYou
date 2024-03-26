@@ -1,17 +1,11 @@
 <template>
   <div>
-    <h1>
+    <h1 class="font-primary">
       {{ $t('pages.index.appName1') }}
-      <span class="-ml-[5px] text-primary-500 dark:text-primary-400">
+      <span
+        class="-ml-[5px] text-primary-500 dark:text-primary-400 font-primary"
+      >
         {{ $t('pages.index.appName2') }}</span>
     </h1>
-    <h2 />
   </div>
 </template>
-<style>
-h1 {
-  font-family: "Syncopate-Bold", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-</style>

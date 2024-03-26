@@ -1,0 +1,56 @@
+@font-face {
+    font-family: "Syncopate";
+    src: url("~/public/fonts/Syncopate-Regular.ttf");
+  }
+@font-face {
+    font-family: "Syncopate-Bold";
+    src: url("~/public/fonts/Syncopate-Bold.ttf");
+  }
+@font-face {
+    font-family: "KoHo-Regular";
+    src: url("~/public/fonts/KoHo-Regular.ttf");
+  }
+@font-face {
+    font-family: 'Inter';
+    src: url("~/public/fonts/Inter-Var.ttf");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+* {
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
+}
+html body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+    background-color: transparent !important;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: rgba(26, 26, 26, 0.692) !important;
+    border-radius: 1rem;
+    margin: 0.4rem;
+    margin-top: 0.4rem;
+    border-left: 1px solid rgba(211, 211, 211, 0) !important;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: linear-gradient(
+      140deg,
+      rgba(0, 0, 0, 0.384),
+      #00000031
+    ) !important;
+    box-shadow: inset 0 0 6px rgb(0, 0, 0) !important;
+  }
+.font-primary {
+    font-family: "Syncopate-Bold", sans-serif;
+    font-weight: 600;
+}

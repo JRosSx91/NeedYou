@@ -16,14 +16,14 @@
         >
           <div class="flex flex-col items-center">
             <h1
-              class="text-foreground text-4xl sm:text-5xl
+              class="font-primary text-foreground text-4xl sm:text-5xl
             sm:leading-none lg:text-7xl"
             >
-              <span class="text-primary-500 dark:text-primary-400">
+              <span class="font-primary text-primary-500 dark:text-primary-400">
                 {{ $t('pages.index.title') }}
               </span>
               {{ $t('pages.index.appName1') }}
-              <span class="text-primary-500 dark:text-primary-400">
+              <span class="font-primary text-primary-500 dark:text-primary-400">
                 {{ $t('pages.index.appName2') }}
               </span>
             </h1>

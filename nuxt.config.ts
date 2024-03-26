@@ -2,8 +2,9 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   colorMode: {
-    preference: 'light'
+    preference: 'system'
   },
+  css: ['~/assets/css/main.css'],
   imports: {
     dirs: [
       'utils',

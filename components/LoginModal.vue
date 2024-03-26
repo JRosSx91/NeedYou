@@ -81,9 +81,9 @@ const handleSignUp = async () => {
   if (error) {
     loginMessage.value = 'Error in user registration:' + error.message;
   } else if (data.user && !data.user.email_confirmed_at) {
-    loginMessage.value = 'Successful registration. Please, verify your e-mail.';
+    loginMessage.value = 'Successful registration.';
     emits('loginSuccess');
-    router.push('/check-mail');
+    router.push('/dashboard');
   }
 };
 
